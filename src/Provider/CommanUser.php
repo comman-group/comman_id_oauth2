@@ -11,8 +11,14 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
  */
 class CommanUser implements ResourceOwnerInterface
 {
-    use ResourceOwnerTrait;
 
+    /**
+     * {@inheritdoc}
+     */
+    public function toArray() {
+        return $this->data;
+    }
+    
     /**
      * {@inheritdoc}
      */
