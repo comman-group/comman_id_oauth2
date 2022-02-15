@@ -145,4 +145,3 @@ class CommanUser implements ResourceOwnerInterface
         return isset($array[$key]) ? $array[$key] : null;
     }
 }
-
