@@ -11,7 +11,7 @@ use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 
 /**
- * Провайдер данных Первого сентября
+ * Провайдер данных COMMAN ID
  */
 class CommanProvider extends AbstractProvider
 {
