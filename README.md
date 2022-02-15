@@ -14,7 +14,7 @@ composer require comman-group/comman_id_oauth2
 ## Usage
 
 ```php
-$provider = new \COMMAN\OAuth2\Client\Provider\CommanProvider([
+$provider = new \Comman\OAuth2\Client\Provider\CommanProvider([
     'clientId' => 'client_id',
     'clientSecret' => 'secret',
     'redirectUri' => 'https://example.org/oauth/endpoint',

@@ -1,11 +1,11 @@
 {
-    "name": "1sept/oauth2-1sept",
-    "description": "September First OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+    "name": "comman-group/comman_id_oauth2",
+    "description": "COMMAN ID OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
         {
-            "name": "Alexander Vasilyev",
-            "email": "a.vasilyev@1sept.ru"
+            "name": "Naum Soloveychik",
+            "email": "naum@comman.com"
         }
     ],
     "keywords": [
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Sept\\OAuth2\\Client\\": "src/"
+            "Comman\\OAuth2\\Client\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sept\\OAuth2\\Client\\Test\\": "test/src/"
+            "Comman\\OAuth2\\Client\\Test\\": "test/src/"
         }
     },
     "extra": {
