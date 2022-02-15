@@ -25,7 +25,7 @@ class CommanProvider extends AbstractProvider
     /**
      * @var string API Первое сентября
      */
-    const API_BASE = 'https://id.comman.com/api/oauth';
+    const API_BASE = 'https://id.comman.com/api/oauth2';
 
     /**
      * @inheritDoc
