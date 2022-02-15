@@ -13,6 +13,16 @@ class CommanUser implements ResourceOwnerInterface
 {
 
     /**
+     * @var array Массив с данными о пользователе
+     */
+    protected $data;
+
+    public function __construct(array $response)
+    {
+        $this->data = $response;
+    }
+    
+    /**
      * {@inheritdoc}
      */
     public function toArray() {
@@ -106,6 +116,33 @@ class CommanUser implements ResourceOwnerInterface
     public function getProfileUrl(): ?string
     {
         return 'https://id.comman.com/';
+    }
+
+    /**
+     * Элемент массива данных о пользователе
+     *
+     * @param string $key Ключ поля (например: email или name.first — вложенность оформляется точкой)
+     * @return mixed|null
+     */
+    protected function getField(string $key)
+    {
+        return static::getFieldFromArray($key, $this->data);
+    }
+
+    /**
+     * Значение массива (многомерного)
+     *
+     * @param string $key Ключ поля (например: `email` или `name.first` — вложенность оформляется точкой)
+     * @return mixed|null
+     */
+    public static function getFieldFromArray(string $key, ?array $array)
+    {
+        if (strpos($key, '.')) { // key.subKey.subSubKey
+            list ($key, $subKey) = explode('.', $key, 2);
+            return isset($array[$key]) ? static::getFieldFromArray($subKey, $array[$key]) : null;
+        }
+
+        return isset($array[$key]) ? $array[$key] : null;
     }
 }
 
