@@ -13,12 +13,14 @@
         "oauth2",
         "client",
         "authorization",
-        "authorization",
         "comman"
     ],
     "require": {
         "php": "^7.3 || ^8",
         "league/oauth2-client": "^2.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
@@ -29,13 +31,5 @@
         "psr-4": {
             "Comman\\OAuth2\\Client\\Test\\": "test/src/"
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5"
     }
 }

@@ -18,14 +18,14 @@ class CommanProvider extends AbstractProvider
     use BearerAuthorizationTrait;
 
     /**
-     * @var string Сервер аутентификации (Личный кабинет Первое сентября)
+     * @var string Сервер аутентификации (COMMAN ID)
      */
-    const AUTH_BASE = 'https://id.1sept.ru';
+    const AUTH_BASE = 'https://id.comman.com';
 
     /**
      * @var string API Первое сентября
      */
-    const API_BASE = 'https://id.1sept.ru/api/oauth';
+    const API_BASE = 'https://id.comman.com/api/oauth';
 
     /**
      * @inheritDoc
