@@ -16,6 +16,14 @@ class CommanUser implements ResourceOwnerInterface
     /**
      * {@inheritdoc}
      */
+    public function getId(): string
+    {
+        return $this->getField('id');
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
     public function getSlug(): string
     {
         return $this->getField('slug');
