@@ -28,16 +28,11 @@ class CommanProvider extends AbstractProvider
     const API_BASE = 'https://id.1sept.ru/api/oauth';
 
     /**
-     * @var string Версия API
-     */
-    const API_VERSION = '2.0';
-
-    /**
      * @inheritDoc
      */
     public function getBaseAuthorizationUrl(): string
     {
-        return static::AUTH_BASE.'/authorize';
+        return static::AUTH_BASE . '/authorize';
     }
 
     /**
@@ -45,7 +40,7 @@ class CommanProvider extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params): string
     {
-        return static::API_BASE.'/access_token';
+        return static::AUTH_BASE . '/token';
     }
 
     /**
@@ -53,7 +48,7 @@ class CommanProvider extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token): string
     {
-        return static::API_BASE.'/'.static::API_VERSION.'/userinfo';
+        return static::API_BASE . '/userinfo';
     }
 
     /**
