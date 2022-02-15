@@ -6,6 +6,19 @@ This package provides [COMMAN](https://id.comman.com) integration for [OAuth2 Cl
 
 ## Installation
 
+##Configure repository in composer.json
+
+```json
+
+"repositories": [
+    {
+    "type": "git",
+    "url": "https://github.com/comman-group/comman_id_oauth2"
+    }
+]
+
+```
+
 Just execute:
 ```sh
 composer require comman-group/comman_id_oauth2
@@ -19,4 +32,20 @@ $provider = new \Comman\OAuth2\Client\Provider\CommanProvider([
     'clientSecret' => 'secret',
     'redirectUri' => 'https://example.org/oauth/endpoint',
 ]);
+```
+
+## Example of knpu_oauth2_client.yaml
+
+```yaml
+
+knpu_oauth2_client:
+    clients:
+        comman_oauth_client:
+            type: generic
+            provider_class: Comman\OAuth2\Client\Provider\CommanProvider
+            client_id: '%env(OAUTH_COMMAN_ID)%'
+            client_secret: '%env(OAUTH_COMMAN_SECRET)%'
+            redirect_route: auth_comman_endpoint
+            redirect_params: {}
+
 ```
