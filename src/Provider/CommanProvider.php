@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Comman\OAuth2\Client\Provider;
 
-use League\OAuth2\Client\Provider\AbstractProvider;
+use Psr\Http\Message\ResponseInterface;
 use League\OAuth2\Client\Token\AccessToken;
+use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Провайдер данных Первого сентября
