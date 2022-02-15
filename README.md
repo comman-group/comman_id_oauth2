@@ -49,3 +49,106 @@ knpu_oauth2_client:
             redirect_params: {}
 
 ```
+
+## Example of symfony controller
+
+
+```php
+
+<?php
+
+namespace App\Controller;
+
+use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Http\Util\TargetPathTrait;
+
+/**
+ * Авторизатор COMMAN ID
+ *
+ */
+class SecurityCommanController extends AbstractController
+{
+    use TargetPathTrait;
+
+    /**
+     * Инициализация авторизации
+     *
+     * @Route("/auth/comman/login", name= "auth_comman_login")
+     * @param ClientRegistry $clientRegistry
+     * @return RedirectResponse
+     */
+    public function login(Request $request, ClientRegistry $clientRegistry)
+    {
+        $request->getSession()->remove(Security::AUTHENTICATION_ERROR);
+
+        // if ($request->headers->get('referer')) {
+        //     $referer = Request::create($request->headers->get('referer'));
+        //     $this->saveTargetPath($request->getSession(), 'main', $referer->getRequestUri()); // Удаляем домен для пути возврата (в целях безопасности)
+        // }
+
+        return $clientRegistry
+            ->getClient('comman_oauth_client') // Key from config/packages/knpu_oauth2_client.yaml
+            ->redirect(
+                [],  // Scopes (default: Provider::getDefaultScopes())
+                []   // Extra options to pass to the "Provider" class
+            )
+        ;
+    }
+
+    /**
+     * Вывод ошибки авторизации
+     *
+     * @Route("/auth/comman/error",  name= "auth_comman_error")
+     */
+    public function error(Request $request): Response
+    {
+        $error = $request->getSession()->get(Security::AUTHENTICATION_ERROR);
+
+        if (!$error) {
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('bundles/TwigBundle/Exception/error403.html.twig', [
+            'status_code' => 403,
+            'status_text' => 'Авторизация отклонена! (' . $request->getSession()->get('_security.last_error')->getMessage() . ')' 
+        ], new Response('', 403));
+    }
+
+    /**
+     * After going to COMMAN ID, you're redirected back here
+     * because this is the "redirect_route" you configured
+     * in config/packages/knpu_oauth2_client.yaml
+     * 
+     * При правильной настройке мы не должны сюда попадать
+     *
+     * @Route("/auth/comman/endpoint", name="auth_comman_endpoint")
+     */
+    public function connectCheckAction(Request $request, ClientRegistry $clientRegistry)
+    {
+        $client = $clientRegistry->getClient('comman_oauth_client');
+
+
+        try {
+            // the exact class depends on which provider you're using
+            $user = $client->fetchUser();
+
+            // do something with all this new power!
+	        // e.g. $name = $user->getFirstName();
+            dd($user);
+            // ...
+        } catch (IdentityProviderException $e) {
+            // something went wrong!
+            // probably you should return the reason to the user
+            var_dump($e->getMessage()); die;
+        }
+    }
+}
+
+```
