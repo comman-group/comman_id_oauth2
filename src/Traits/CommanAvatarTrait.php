@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Traits;
+namespace Comman\OAuth2\Client\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
