@@ -13,7 +13,9 @@ trait AboutTrait
     static const COMMAN_ID_IMAGE_URL = 'https://id.comman.com/image';
    
     /**
-     * Файл картинки
+     * Имя файла картинки
+     *  
+     * @ORM\Column(type="string", nullable=false, length=100)
      */
     private string $commanImageFile;
 
