@@ -105,9 +105,25 @@ class CommanUser implements ResourceOwnerInterface
     /**
      * {@inheritdoc}
      */
-    public function getAvatarUrl(bool $rejectEmptyAvatar = false): ?string
+    public function getPhotoMax(bool $rejectEmptyAvatar = false): ?string
     {
         return $this->getField('photo_max');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPhotoFile(bool $rejectEmptyAvatar = false): ?string
+    {
+        return $this->getField('photo_file');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPhoto(bool $rejectEmptyAvatar = false): ?array
+    {
+        return $this->getField('photo');
     }
 
     /**
