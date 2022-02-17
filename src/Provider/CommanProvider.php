@@ -73,7 +73,7 @@ class CommanProvider extends AbstractProvider
     protected function checkResponse(ResponseInterface $response, $data): void
     {
         if (!empty($data['error'])) {
-            throw new IdentityProviderException($data['error'].': '.$data['message'], 0, $response->getBody()->__toString());
+            throw new IdentityProviderException($data['error'].': '.$data['message'], 0, json_encode($data));
         }
     }
 
