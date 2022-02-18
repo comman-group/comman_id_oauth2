@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Comman\OAuth2\Client\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -19,23 +21,23 @@ trait CommanAuthFieldsTrait
      * @Assert\Length(max=64)
      * @Assert\Uuid
      */
-    private ?string $commanId;
+    private null|string $commanId;
 
     /**
      * Данные пользователя UserInfo COMMAN ID
      * 
      * @ORM\Column(type="json", nullable=true)
      */
-    private ?array $commanUserInfo;
+    private null|array $commanUserInfo;
 
     /**
      * Токены COMMAN ID
      * 
      * @ORM\Column(type="json", nullable=true)
      */
-    private ?array $commanToken;
+    private null|array $commanToken;
 
-    public function getCommanId(): ?string
+    public function getCommanId(): null|string
     {
         return $this->commanId;
     }
@@ -47,7 +49,7 @@ trait CommanAuthFieldsTrait
         return $this;
     }
 
-    public function getCommanUserInfo(): ?array
+    public function getCommanUserInfo(): null|array
     {
         return $this->commanUserInfo;
     }
@@ -59,7 +61,7 @@ trait CommanAuthFieldsTrait
         return $this;
     }
 
-    public function getCommanToken(): ?AccessToken
+    public function getCommanToken(): null|AccessToken
     {
         return $this->commanToken ? new AccessToken($this->commanToken) : null;
     }

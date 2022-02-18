@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Comman\OAuth2\Client\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -22,12 +24,12 @@ trait CommanAvatarTrait
     private string $commanImageFile;
 
     
-    public function getCommanImageFile(): ?string
+    public function getCommanImageFile(): null|string
     {
         return $this->commanImageFile;
     }
 
-    public function setCommanImageFile(string $commanImageFile): ?self
+    public function setCommanImageFile(string $commanImageFile): self
     {
 
         $this->commanImageFile = $commanImageFile;
@@ -35,8 +37,12 @@ trait CommanAvatarTrait
         return $this;
     }
 
-    public function getAvatar(int $width = 300, int $height = null)
+    public function getAvatar(int $width = 300, int $height = null): null|string
     {
+        if (!$this->commanImageFile) {
+            return null;
+        }
+        
         if (is_null($height)) {
             $height = $width;
         }
