@@ -49,7 +49,7 @@ trait CommanAvatarTrait
 
         $if = $this->commanImageFile;
 
-        return $this->COMMAN_ID_IMAGE_URL . '/' . substr($if,0,2) . '/' . substr($if,2,2) . '/' . substr($if,4,2) . '/' . substr($if,6,2) . '/' . str_replace($if, '.', '__' . $width . 'x' . $height.'.');
+        return $this->COMMAN_ID_IMAGE_URL . '/' . substr($if,0,2) . '/' . substr($if,2,2) . '/' . substr($if,4,2) . '/' . substr($if,6,2) . '/' . str_replace('.', '__' . $width . 'x' . $height.'.', $if);
     }
 }
    
