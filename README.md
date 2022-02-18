@@ -6,7 +6,7 @@ This package provides [COMMAN](https://id.comman.com) integration for [OAuth2 Cl
 
 ## Installation
 
-##Configure repository in composer.json
+## Configure repository in composer.json
 
 ```json
 
@@ -21,6 +21,7 @@ This package provides [COMMAN](https://id.comman.com) integration for [OAuth2 Cl
 
 Just execute:
 ```sh
+composer require knpuniversity/oauth2-client-bundle
 composer require comman-group/comman_id_oauth2
 ```
 
