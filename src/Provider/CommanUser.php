@@ -131,7 +131,7 @@ class CommanUser implements ResourceOwnerInterface
      */
     public function getProfileUrl(): ?string
     {
-        return 'https://id.comman.com/';
+        return 'https://id.comman.com/me';
     }
 
     /**
