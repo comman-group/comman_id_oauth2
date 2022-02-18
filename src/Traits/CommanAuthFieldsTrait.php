@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Трейт фотографии пользователя COMMAN_ID
  */
-trait AboutTrait
+trait CommanAuthFieldsTrait
 {
     const COMMAN_ID_IMAGE_URL = 'https://id.comman.com/image';
    
