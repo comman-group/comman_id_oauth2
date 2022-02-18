@@ -15,6 +15,9 @@ trait CommanAuthFieldsTrait
      * Идентификатор пользователя COMMAN ID (UUID)
      * 
      * @ORM\Column(type="string", length=64, unique=true, options={"fixed":true}, nullable=true)
+     * 
+     * @Assert\Length(max=64)
+     * @Assert\Uuid
      */
     private ?string $commanId;
 

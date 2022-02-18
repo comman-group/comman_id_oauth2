@@ -16,6 +16,8 @@ trait CommanAvatarTrait
      * Имя файла картинки
      *  
      * @ORM\Column(type="string", nullable=false, length=100)
+     * 
+     * @Assert\Length(max=100)
      */
     private string $commanImageFile;
 
