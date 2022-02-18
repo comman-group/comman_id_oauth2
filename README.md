@@ -10,8 +10,7 @@ This package provides [COMMAN](https://id.comman.com) integration for [OAuth2 Cl
 
 ```json
 
-"repositories": [
-    {
+"repositories": [{
     "type": "git",
     "url": "https://github.com/comman-group/comman_id_oauth2"
     }
