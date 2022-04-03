@@ -20,12 +20,12 @@ class CommanProvider extends AbstractProvider
     /**
      * @var string Сервер аутентификации (COMMAN ID)
      */
-    const AUTH_BASE = 'https://id.comman.com';
+    const AUTH_BASE = 'https://id.comman.ru';
 
     /**
      * @var string API Первое сентября
      */
-    const API_BASE = 'https://id.comman.com/api/oauth2';
+    const API_BASE = 'https://id.comman.ru/api/oauth2';
 
     /**
      * @inheritDoc
