@@ -84,4 +84,5 @@ class CommanProvider extends AbstractProvider
     {
         return new CommanUser($response);
     }
+    
 }

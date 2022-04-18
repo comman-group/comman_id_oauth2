@@ -94,6 +94,14 @@ class CommanUser implements ResourceOwnerInterface
         return $this->getField('email');
     }
 
+     /**
+     * {@inheritdoc}
+     */
+    public function getPhone(): ?string
+    {
+        return $this->getField('phone');
+    }
+
     /**
      * {@inheritdoc}
      */
